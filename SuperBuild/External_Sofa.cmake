@@ -59,7 +59,7 @@ if(NOT DEFINED ${proj}_DIR AND NOT ${SUPERBUILD_TOPLEVEL_PROJECT}_USE_SYSTEM_${p
   FetchContent_Populate(${plugin_name}
     SOURCE_DIR     ${${plugin_name}_SOURCE_DIR}
     GIT_REPOSITORY "https://github.com/Slicer/SofaPython3.git"
-    GIT_TAG        "baaf3fc6f3f2665aacb4178a69eb27003936fda8" # slicer-20.12.00-2024-03-13-1972c5181
+    GIT_TAG        "0399c432c2c47a8235fe4f551c6d69ef84519772" # slicer-24.12.00-2025-29-01-0399c432c
     GIT_PROGRESS   1
     QUIET
     )
@@ -86,7 +86,7 @@ if(NOT DEFINED ${proj}_DIR AND NOT ${SUPERBUILD_TOPLEVEL_PROJECT}_USE_SYSTEM_${p
     ${${proj}_EP_ARGS}
     # Note: Update the repository URL and tag to match the correct SOFA version
     GIT_REPOSITORY "https://github.com/Slicer/sofa.git"
-    GIT_TAG "8778c194336efb7551c620b047f0e7ea24b93fd7" # slicer-v24.06.00-2024-06-07-2628b9f29
+    GIT_TAG "98e6aa3f8d7cd201538e54c84213bedd1031a9f4" # slicer-v24.12.00-2025-30-01-98e6aa3f8
     URL ${SOFA_URL}
     URL_HASH ${SOFA_URL_HASH}
     DOWNLOAD_DIR ${CMAKE_BINARY_DIR}/download
@@ -97,7 +97,7 @@ if(NOT DEFINED ${proj}_DIR AND NOT ${SUPERBUILD_TOPLEVEL_PROJECT}_USE_SYSTEM_${p
       -DCMAKE_C_COMPILER:FILEPATH=${CMAKE_C_COMPILER}
       -DCMAKE_C_FLAGS:STRING=${ep_common_c_flags}
       -DCMAKE_CXX_COMPILER:FILEPATH=${CMAKE_CXX_COMPILER}
-      -DCMAKE_CXX_FLAGS:STRING=${ep_common_cxx_flags}
+      -DCMAKE_CXX_FLAGS:STRING="${ep_common_cxx_flags};-fconcepts"
       -DCMAKE_CXX_STANDARD:STRING=${CMAKE_CXX_STANDARD}
       -DCMAKE_CXX_STANDARD_REQUIRED:BOOL=${CMAKE_CXX_STANDARD_REQUIRED}
       -DCMAKE_CXX_EXTENSIONS:BOOL=${CMAKE_CXX_EXTENSIONS}
